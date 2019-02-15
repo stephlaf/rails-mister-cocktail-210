@@ -1,4 +1,6 @@
 <h1><%= @cocktail.name %></h1>
+<p><%= link_to 'Change the name', edit_cocktail_path(@cocktail) %></p>
+
 <ol>
   <% @cocktail.doses.each do |dose| %>
     <li><%= dose.description %> of <%= dose.ingredient.name %></li>
@@ -9,4 +11,11 @@
 </ol>
 
 
-<%= link_to 'Back home', cocktails_path, class: 'btn btn-sm btn-primary' %>
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :ingredient_id, collection: Ingredient.all, label: 'Sooo, what do you want to add here?' %>
+  <%= f.input :description, label: 'How much' %>
+  <%= f.submit 'Do it!', class: 'btn btn-sm btn-primary' %>
+<% end %>
+
+
+<%= link_to 'Back home', cocktails_path %>
