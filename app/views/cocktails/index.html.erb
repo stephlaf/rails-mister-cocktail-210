@@ -1,0 +1,9 @@
+<h1>All our Cocktails</h1>
+<p><%= link_to 'Create a drinks', new_cocktail_path, class: 'btn btn-sm btn-primary' %></p>
+
+<% @cocktails.each do |c| %>
+  <h3> <%= link_to c.name, cocktail_path(c) %> </h3>
+  <p><%= link_to 'Edit', edit_cocktail_path(c), class: 'btn btn-sm btn-primary' %></p>
+  <p><%= link_to 'Delete', cocktail_path(c), method: :delete, data: { confirm: "You sure there, buddy?" }, class: 'btn btn-sm btn-primary' %></p>
+<% end %>
+
