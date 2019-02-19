@@ -2,7 +2,7 @@
 <p><%= link_to 'Create a drinks', new_cocktail_path, class: 'btn btn-sm btn-primary' %></p>
 
 <% @cocktails.each do |c| %>
-  <%= cl_image_tag c.photo, width: 200, height: 200, crop: :fill %>
+  <%= cl_image_tag c.photo, width: 200, height: 300, crop: :fill %>
   <h3> <%= link_to c.name, cocktail_path(c) %> </h3>
   <p><%= link_to 'Delete', cocktail_path(c), method: :delete, data: { confirm: "You sure there, buddy?" } %></p>
 <% end %>
